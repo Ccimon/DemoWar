@@ -10,4 +10,19 @@ namespace MainGame.Data
         public float InCreaseSpeed;
         public int UserId;
     }
+
+    public class AttackData
+    {
+        public int Damage = 0;
+        protected int RealDamange = 0;
+
+        public void SetRealDamage(int damage)
+        {
+            RealDamange = damage;
+        }
+        public int GetAllDamange()
+        {
+            return RealDamange;
+        }
+    }
 }

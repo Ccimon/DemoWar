@@ -10,6 +10,7 @@ namespace UnityExtension
     {
         protected System.Action<PointerEventData> clickCall;
 
+        protected bool _pointerEnabled = true;
         public void RegisterClickAction(System.Action<PointerEventData> call)
         {
             clickCall = null;
@@ -18,7 +19,13 @@ namespace UnityExtension
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (!_pointerEnabled) return;
             clickCall?.Invoke(eventData);
+        }
+
+        public void CleanPointerClick()
+        {
+            clickCall = null;
         }
     }
 }

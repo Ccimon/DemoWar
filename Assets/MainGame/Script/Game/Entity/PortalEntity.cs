@@ -5,7 +5,7 @@ using UnityExtension;
 
 namespace MainGame.Entity
 {
-    public class PortalEntity : MonoClickHandler
+    public class PortalEntity : BastionEntity
     {
 
     }

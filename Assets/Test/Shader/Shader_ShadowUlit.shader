@@ -58,10 +58,7 @@ Shader "ShaderLib/Shader_ShadowUlit"
 			fixed4 frag(v2f i) : SV_Target
 			{
 				fixed atten = SHADOW_ATTENUATION(i);
-                float4 color = tex2D(_MainTex, i.uv);
-				color.rgb *= atten;
-				color.rgb += _ShadowColor;
-				color.a = saturate(1 - atten) * _ShadowColor.a;
+                float4 color = float4(_ShadowColor.rgb,saturate(1 - atten) * _ShadowColor.a);
 				return color;
 			}
 			ENDCG

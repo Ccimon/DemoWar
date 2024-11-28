@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace MainGame.Manager
 {
+    /// <summary>
+    /// 游戏进入初始化管理器
+    /// </summary>
     public class GameEnterManager : MonoBehaviour
     {
         public static GameEnterManager Instance;
@@ -23,7 +26,7 @@ namespace MainGame.Manager
 
         private void MainInit()
         {
-
+            GameManager.Instance.InitGame();
         }
 
         #region 时间刷新

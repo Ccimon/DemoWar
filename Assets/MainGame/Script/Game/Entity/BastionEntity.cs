@@ -3,9 +3,11 @@ namespace MainGame.Entity
     using UnityExtension;
     using MainGame.Data;
     using MainGame.Event;
+    using System;
+    using QFramework;
+    using UnityEngine.EventSystems;
 
-
-    public class BastionEntity : MonoClickHandler, ITimerEntity
+    public class BastionEntity : MonoClickHandler, ITimerEntity, IRecyclable
     {
         private BastionData data;
         protected float _time;
@@ -15,7 +17,8 @@ namespace MainGame.Entity
         public void InitData(BastionData bastionData)
         {
             data = bastionData;
-
+            CleanPointerClick();
+            RegisterClickAction(OnBastionClick);
         }
 
         public void SyncTime(float delta)
@@ -26,13 +29,24 @@ namespace MainGame.Entity
 
         #region 私有方法
 
-        protected void OnBastionClick()
+        protected void OnBastionClick(PointerEventData data)
         {
             var gevent = new GEvent_Bastion_Click()
             {
                 bastion = this
             };
 
+            TypeEventSystem.Send(gevent);
+        }
+
+        public void Recycle()
+        {
+            Destroy(gameObject);
+        }
+
+        public Type GetObjectType()
+        {
+            return typeof(BastionEntity);
         }
 
         #endregion
