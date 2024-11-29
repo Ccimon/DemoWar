@@ -9,7 +9,6 @@ namespace UnityExtension
     public class MonoClickHandler : MonoBehaviour, IPointerClickHandler
     {
         protected System.Action<PointerEventData> clickCall;
-
         protected bool _pointerEnabled = true;
         public void RegisterClickAction(System.Action<PointerEventData> call)
         {

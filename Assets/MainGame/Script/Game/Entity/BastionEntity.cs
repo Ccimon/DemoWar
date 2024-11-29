@@ -6,10 +6,13 @@ namespace MainGame.Entity
     using System;
     using QFramework;
     using UnityEngine.EventSystems;
+    using UnityEngine;
+    using DG.Tweening;
 
-    public class BastionEntity : MonoClickHandler, ITimerEntity, IRecyclable
+    public class BastionEntity : MonoClickHandler, IAttackable, ITimerEntity, IRecyclable
     {
         private BastionData data;
+        public int PlayerId = 0;
         protected float _time;
         float ITimerEntity.Time { get => _time; set => _time = value; }
 
@@ -37,6 +40,15 @@ namespace MainGame.Entity
             };
 
             TypeEventSystem.Send(gevent);
+
+            ClickAnimation();
+        }
+
+
+        protected virtual void ClickAnimation()
+        {
+            transform.DOScale(1.1f, 0.1f);
+            transform.DOScale(1f, 0.1f).SetDelay(0.1f);
         }
 
         public void Recycle()
@@ -48,6 +60,22 @@ namespace MainGame.Entity
         {
             return typeof(BastionEntity);
         }
+
+        public void UnderAttack(AttackData attackData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Vector3 GetPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dead()
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
     }

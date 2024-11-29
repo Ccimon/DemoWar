@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MainGame.Entity;
+using MainGame.Script.Data;
+using UnityEngine;
 
 namespace MainGame.Manager
 {
@@ -35,7 +37,9 @@ namespace MainGame.Manager
         #region 公共方法
         public SolderEntity GetSolderEntity()
         {
-            return null;
+            var solder = GameObject.Instantiate(DemoWarGameConfig.Instance.SolderObject);
+            var solderEntity = solder.GetComponent<SolderEntity>();
+            return solderEntity;
         }
         #endregion
     }

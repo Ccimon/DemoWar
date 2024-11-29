@@ -91,6 +91,8 @@
     <Compile Include="Assets/ThirdParty/DOTween/Modules/DOTweenModuleUtils.cs" />
     <Compile Include="Assets/ThirdParty/DOTween/Modules/DOTweenModuleSprite.cs" />
     <Compile Include="Assets/MainGame/Script/Manager/SolderManager.cs" />
+    <Compile Include="Assets/MainGame/Script/Manager/PlayerManager.cs" />
+    <Compile Include="Assets/MainGame/Script/Manager/InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -99,7 +101,6 @@
     <None Include="Assets/Test/Shader/Shader_Sprite.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/Test/Shader/saoguang.shader" />
     <None Include="Assets/Test/Shader/Shader_ShadowUlit 1.shader" />
     <None Include="Assets/Test/Shader/Shader_cartoon.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
@@ -120,6 +121,7 @@
     <None Include="Assets/Test/Shader/Shader_Billboard.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/Test/Shader/Shader_ShadowUlit.shader" />
+    <None Include="Assets/Test/Shader/FixPolish.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
     <None Include="Assets/ThirdParty/DOTween/DOTween.dll" />

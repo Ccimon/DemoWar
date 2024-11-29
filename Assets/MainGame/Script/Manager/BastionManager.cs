@@ -19,7 +19,10 @@ namespace MainGame.Manager
 
         private BastionEntity _curBastion = null;
 
+        private BastionEntity _targetBastion = null;
+
         private List<BastionEntity> bastionEntities = new List<BastionEntity>();
+
         public void CleanData()
         {
             CleanEvent();
@@ -58,6 +61,8 @@ namespace MainGame.Manager
         private void InitEvent()
         {
             TypeEventSystem.Register<GEvent_Bastion_Click>(OnBastionClick);
+
+            InputManager.Instance.RegisterTouchUpEvent(OnTouchUp);
         }
 
         private void CleanEvent()
@@ -73,7 +78,31 @@ namespace MainGame.Manager
         {
             Debug.Log($"ClickBasion:{bastion}");
             if (!_active) return;
+
+            if (_curBastion == null)
+            {
+                _curBastion = bastion;
+            }
+            else if (bastion != _curBastion)
+            {
+                _targetBastion = bastion;
+            }
         }
+
+        private void OnTouchUp()
+        {
+
+            Debug.Log($"Check Bastion Action");
+            if (_curBastion != null && _targetBastion != null)
+            {
+                var Solder = SolderManager.Instance.GetSolderEntity();
+                Solder.Target = _targetBastion;
+                Solder.transform.parent = DemoWarGameConfig.Instance.GameBoardContent;
+                Vector3 direct = _targetBastion.transform.position - _curBastion.transform.position;
+                Solder.transform.position = direct.normalized * 5 + _targetBastion.transform.position;
+            }
+        }
+
 
         private BastionEntity CreateBastion()
         {

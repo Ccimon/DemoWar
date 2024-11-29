@@ -71,7 +71,7 @@ namespace MainGame
     /// </summary>
     public interface IAttackable
     {
-        public void GetAttack(Data.AttackData attackData);
+        public void UnderAttack(Data.AttackData attackData);
 
         public Vector3 GetPosition();
 

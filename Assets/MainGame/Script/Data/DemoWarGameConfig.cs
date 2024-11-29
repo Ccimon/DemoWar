@@ -16,6 +16,9 @@ namespace MainGame.Script.Data
         public GameObject BastionObject;
         public GameObject SolderObject;
 
+
+        public List<Material> PortalMoterial = new List<Material>();
+        public List<Material> SolderMaterial = new List<Material>();
         public Transform GameBoardContent;
         private void Awake()
         {
